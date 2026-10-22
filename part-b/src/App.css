@@ -1,0 +1,291 @@
+/* =============================================
+   PHẦN B – APP COMPONENT STYLES
+   Modern flat design · teal accent · top-bar cards
+   ============================================= */
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ====== HEADER – Dark navy, teal accent line ====== */
+.header {
+  background: var(--header-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 0 var(--header-accent);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #f0fafa;
+  letter-spacing: -0.01em;
+}
+
+.header-right { display: flex; align-items: center; gap: 12px; }
+
+.fav-badge {
+  background: rgba(20, 184, 166, 0.15);
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #5eead4;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid rgba(20, 184, 166, 0.25);
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(240, 250, 250, 0.1);
+  background: rgba(240, 250, 250, 0.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition: background var(--transition);
+  color: #f0fafa;
+}
+
+.btn-icon:hover { background: rgba(240, 250, 250, 0.14); }
+
+/* ====== MAIN ====== */
+.main-content {
+  padding-top: 8px;
+  padding-bottom: 32px;
+  min-height: calc(100vh - 140px);
+}
+
+/* ====== TOOLBAR ====== */
+.toolbar {
+  display: flex;
+  gap: 14px;
+  padding: 20px 0 8px;
+  flex-wrap: wrap;
+}
+
+.search-box { flex: 1; min-width: 240px; position: relative; }
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 11px 12px 11px 40px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.search-box input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.search-box input::placeholder { color: var(--text-muted); }
+
+/* ====== GENRE FILTER – Pill buttons ====== */
+.genre-filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px 0 16px;
+}
+
+.genre-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.genre-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.genre-btn.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ====== STATUS BAR ====== */
+.status-bar {
+  padding: 10px 14px;
+  background: var(--color-primary-light);
+  border-radius: var(--radius);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.82rem;
+  margin-bottom: 18px;
+}
+
+/* ====== BOOK GRID ====== */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding-bottom: 40px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ====== BOOK CARD – Top accent bar, clean flat ====== */
+.book-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: var(--header-accent);
+}
+
+/* Rotate accent colors */
+.book-card:nth-child(3n+2)::before { background: #6366f1; }
+.book-card:nth-child(3n)::before   { background: #f59e0b; }
+
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.book-card > *:not(::before) {
+  /* padding handled individually */
+}
+
+.book-genre-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 18px 18px 0;
+}
+
+.book-name {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin: 8px 18px 0;
+}
+
+.book-author {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 4px 18px 0;
+}
+
+.book-year {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin: 2px 18px 0;
+}
+
+.book-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ====== BUTTONS ====== */
+.btn-fav {
+  flex: 1;
+  padding: 8px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-fav:hover {
+  border-color: var(--color-favorite);
+  color: var(--color-favorite);
+  background: var(--color-favorite-light);
+}
+
+.btn-fav.active {
+  border-color: var(--color-favorite);
+  color: #fff;
+  background: var(--color-favorite);
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  transition: background var(--transition);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .header-content { flex-direction: column; gap: 10px; text-align: center; }
+  .logo { font-size: 1.15rem; }
+  .toolbar { flex-direction: column; }
+  .search-box { min-width: unset; }
+  .book-grid { grid-template-columns: 1fr; }
+  .genre-filter-buttons { justify-content: center; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .book-grid { grid-template-columns: repeat(2, 1fr); }
+}

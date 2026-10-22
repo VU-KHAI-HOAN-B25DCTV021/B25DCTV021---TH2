@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thư viện sách trực tuyến – Quản lý, tìm kiếm và đánh dấu sách yêu thích dễ dàng" />
+  <title>📚 Thư Viện Lớp Học</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- ====== HEADER ====== -->
+  <header class="header" id="header">
+    <div class="container header-content">
+      <div class="header-left">
+        <h1 class="logo">📚 Thư Viện Lớp Học</h1>
+      </div>
+      <div class="header-right">
+        <span class="fav-badge" id="fav-badge">
+          ❤️ <span id="fav-number">0</span> yêu thích
+        </span>
+        <button class="btn-icon" id="theme-toggle" aria-label="Chuyển chế độ sáng/tối">
+          <span id="theme-icon">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== MAIN ====== -->
+  <main class="container main-content">
+    <!-- Thanh công cụ -->
+    <section class="toolbar" aria-label="Công cụ tìm kiếm">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Tìm sách theo tên…"
+          aria-label="Tìm kiếm sách"
+          autocomplete="off"
+        />
+      </div>
+      <select id="genre-filter" aria-label="Lọc theo thể loại">
+        <option value="">Tất cả thể loại</option>
+      </select>
+    </section>
+
+    <!-- Dòng trạng thái -->
+    <div id="status-bar" class="status-bar"></div>
+
+    <!-- Đang tải -->
+    <div id="loading" class="loading" style="display: none">
+      <div class="spinner"></div>
+      <p>Đang tải dữ liệu…</p>
+    </div>
+
+    <!-- Thông báo lỗi -->
+    <div id="error-msg" class="error-msg" style="display: none"></div>
+
+    <!-- Lưới thẻ sách -->
+    <section id="book-grid" class="book-grid" aria-label="Danh sách sách"></section>
+
+    <!-- Form thêm sách -->
+    <section class="form-section" aria-label="Thêm sách mới">
+      <h2>📝 Thêm sách mới</h2>
+      <form id="book-form" novalidate>
+        <div class="form-group">
+          <label for="book-name">Tên sách</label>
+          <input type="text" id="book-name" name="name" placeholder="Nhập tên sách (ít nhất 3 ký tự)" />
+          <span class="form-error" id="error-name"></span>
+        </div>
+        <div class="form-group">
+          <label for="book-author">Tác giả</label>
+          <input type="text" id="book-author" name="author" placeholder="Nhập tên tác giả" />
+          <span class="form-error" id="error-author"></span>
+        </div>
+        <div class="form-group">
+          <label for="book-genre">Thể loại</label>
+          <select id="book-genre" name="genre">
+            <option value="">— Chọn thể loại —</option>
+          </select>
+          <span class="form-error" id="error-genre"></span>
+        </div>
+        <div class="form-group">
+          <label for="book-year">Năm xuất bản</label>
+          <input type="number" id="book-year" name="year" placeholder="1900 – 2026" min="1900" max="2026" />
+          <span class="form-error" id="error-year"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btn-submit">➕ Thêm sách</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Thư Viện Lớp Học · Bài thực hành TH2</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
